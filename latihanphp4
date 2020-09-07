@@ -1,0 +1,38 @@
+<?php
+class produk{
+  public $barang, $merk, $kecepatan, $harga;
+
+ public function getCetak(){
+  return "$this->merk, $this->kecepatan, $this->harga";
+}
+ public function __construct($barang="barang", $merk="merk", $kecepatan="kecepatan", $harga="harga"){
+ 	$this->barang=$barang;
+  	$this->merk=$merk;
+  	$this->kecepatan=$kecepatan;
+  	$this->harga=$harga;
+ }
+}
+
+class cetakInfoProduk{
+	public function cetakInfo($produk){
+		$str="{$produk->barang}, {$produk->getCetak()}";
+		return $str; 
+	}
+}
+
+$produk1 = new produk ("mobil", "Rolls-Royce Sweptail", "241 kpj", "201.5 miliar.");
+$produk2 = new produk ("mobil", "Mercedes-Benz Maybach Exelero", "351 kpj", "124 miliar.");
+$produk3 = new produk ("mobil", "Bugatti Divo", "380 kpj", "89.9 miliar.");
+$produk4 = new produk ("mobil", "Lamborghini Veneno Roadster", "355 kpj", "69.7 miliar.");
+$infoProduk = new cetakInfoProduk();
+
+echo "Produk 1 : " . $produk1 -> getCetak();
+echo "<br>";
+echo "Produk 2 : " . $produk2 -> getCetak();
+echo "<br>";
+echo "Produk 3 : " . $produk3 -> getCetak();
+echo "<br>";
+echo "Produk 4 : " . $produk4 -> getCetak();
+echo "<br>";
+echo $infoProduk -> cetakInfo($produk1);
+?>
